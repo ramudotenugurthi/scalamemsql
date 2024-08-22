@@ -64,4 +64,15 @@ public class JavaSqlCrud {
 
         } catch (Exception e) {
             e.printStackTrace();
+      } finally {
+            // Close resources
+            try {
+                if (statement != null) statement.close();
+                if (connection != null) connection.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
        
