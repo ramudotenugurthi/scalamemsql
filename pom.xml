@@ -87,7 +87,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>MemSqlExample</mainClass> <!-- Replace with your main class -->
+                    <mainClass>MemSqlCrud</mainClass> <!-- Replace with your main class -->
                 </configuration>
             </plugin>
         </plugins>

@@ -21,24 +21,22 @@ public class JavaSqlCrud {
             statement = connection.createStatement();
 
             // Create a table
-            String createTableSQL = """
-                CREATE TABLE IF NOT EXISTS emp (
-                  emp_id INT AUTO_INCREMENT PRIMARY KEY,
-                  first_name VARCHAR(50),
-                  last_name VARCHAR(50),
-                  email VARCHAR(100),
-                  hire_date DATE,
-                  salary DECIMAL(10, 2)
-                )
-            """;
+            String createTableSQL = "CREATE TABLE IF NOT EXISTS emp ("
+                    + " emp_id INT AUTO_INCREMENT PRIMARY KEY, "
+                    + " first_name VARCHAR(50), "
+                    + " last_name VARCHAR(50), "
+                    + " email VARCHAR(100), "
+                    + " hire_date DATE, "
+                    + " salary DECIMAL(10, 2) "
+                    + ")";
+
             statement.executeUpdate(createTableSQL);
             System.out.println("Table created successfully.");
 
             // Insert a value
-            String insertSQL = """
-                INSERT INTO emp (first_name, last_name, email, hire_date, salary)
-                VALUES ('John', 'Doe', 'john.doe@example.com', '2024-08-18', 50000.00)
-            """;
+            String insertSQL = "INSERT INTO emp (first_name, last_name, email, hire_date, salary) "
+                    + "VALUES ('John', 'Doe', 'john.doe@example.com', '2024-08-18', 50000.00)";
+
             statement.executeUpdate(insertSQL);
             System.out.println("Record inserted successfully.");
 
@@ -53,8 +51,8 @@ public class JavaSqlCrud {
                 String email = resultSet.getString("email");
                 java.sql.Date hireDate = resultSet.getDate("hire_date");
                 java.math.BigDecimal salary = resultSet.getBigDecimal("salary");
-                System.out.println("ID: " + empId + ", Name: " + firstName + " " + lastName + 
-                                   ", Email: " + email + ", Hire Date: " + hireDate + ", Salary: " + salary);
+                System.out.println("ID: " + empId + ", Name: " + firstName + " " + lastName +
+                        ", Email: " + email + ", Hire Date: " + hireDate + ", Salary: " + salary);
             }
 
             // Drop the table
@@ -64,7 +62,7 @@ public class JavaSqlCrud {
 
         } catch (Exception e) {
             e.printStackTrace();
-      } finally {
+        } finally {
             // Close resources
             try {
                 if (statement != null) statement.close();
@@ -75,4 +73,3 @@ public class JavaSqlCrud {
         }
     }
 }
-       
